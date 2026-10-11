@@ -1,0 +1,62 @@
+{
+  "id": "demo-basics",
+  "title": "Introduction to Clinical History Taking",
+  "subject": "Demo series",
+  "description": "A small example showing conditional questions, a shared diagnosis pool, and timed scoring.",
+  "defaultLanguage": "en",
+  "labels": {
+    "de": {
+      "title": "Einführung in die klinische Anamnese",
+      "subject": "Beispielserie",
+      "description": "Ein kurzes Beispiel für bedingte Fragen, einen gemeinsamen Diagnosenpool und zeitabhängige Punkte.",
+      "categoryPrompts": { "Presenting complaint": "Aktuelle Beschwerden", "Social history": "Sozialanamnese", "Associated symptoms": "Begleitsymptome" },
+      "diagnoses": { "Acute appendicitis": "Akute Appendizitis", "Gastroenteritis": "Gastroenteritis", "Irritable bowel syndrome": "Reizdarmsyndrom", "Renal colic": "Nierenkolik", "Urinary tract infection": "Harnwegsinfektion", "Ectopic pregnancy": "Eileiterschwangerschaft" }
+    }
+  },
+  "defaultTimeLimitSeconds": 240,
+  "categoryPrompts": {
+    "Presenting complaint": "Presenting complaint",
+    "Social history": "Social history",
+    "Associated symptoms": "Associated symptoms"
+  },
+  "diagnosisPool": [
+    "Acute appendicitis",
+    "Gastroenteritis",
+    "Irritable bowel syndrome",
+    "Renal colic",
+    "Urinary tract infection"
+  ],
+  "cases": [
+    {
+      "id": "rlq-pain",
+      "title": "Right lower abdominal pain",
+      "presentation": "A 22-year-old presents with abdominal pain that began this morning.",
+      "labels": {
+        "de": {
+          "title": "Schmerz im rechten Unterbauch",
+          "presentation": "Eine 22-jährige Person stellt sich mit heute Morgen begonnenen Bauchschmerzen vor.",
+          "questions": {
+            "pain-site": { "text": "Wo haben die Schmerzen begonnen?", "answer": "In der Nähe des Bauchnabels." },
+            "pain-migration": { "text": "Sind die Schmerzen gewandert?", "answer": "Jetzt vor allem im rechten Unterbauch." },
+            "nausea": { "text": "Ist Ihnen übel oder mussten Sie erbrechen?", "answer": "Übelkeit und einmaliges Erbrechen." },
+            "fever": { "text": "Hatten Sie Fieber oder Schüttelfrost?", "answer": "Am Nachmittag fühlte ich mich fiebrig." },
+            "occupation": { "text": "Welchen Beruf üben Sie aus?", "answer": "Ich studiere." }
+          }
+        }
+      },
+      "timeLimitSeconds": 180,
+      "questions": [
+        { "id": "pain-site", "category": "Presenting complaint", "text": "Where did the pain start?", "answer": "Around the umbilicus." },
+        { "id": "pain-migration", "category": "Presenting complaint", "text": "Has the pain moved?", "answer": "It is now mainly in the right lower abdomen.", "required": ["pain-site"] },
+        { "id": "nausea", "category": "Associated symptoms", "text": "Have you felt nauseated or vomited?", "answer": "Nausea and one episode of vomiting." },
+        { "id": "fever", "category": "Associated symptoms", "text": "Have you had fever or chills?", "answer": "I felt feverish this afternoon." },
+        { "id": "occupation", "category": "Social history", "text": "What is your occupation?", "answer": "University student." }
+      ],
+      "diagnoses": {
+        "exclude": ["Irritable bowel syndrome"],
+        "include": ["Ectopic pregnancy"],
+        "correct": ["Acute appendicitis"]
+      }
+    }
+  ]
+}

@@ -1,0 +1,544 @@
+{
+  "id": "course-start",
+  "title": "Kursstart:",
+  "subject": "Lernfälle",
+  "description": "Fünf kurze Fälle zum strukturierten Erfragen von Leitsymptomen.",
+  "defaultLanguage": "de",
+  "defaultTimeLimitSeconds": 180,
+  "categoryPrompts": {
+    "Aktuelle Beschwerden": "Aktuelle Beschwerden",
+    "Verlauf und Auslöser": "Verlauf und Auslöser",
+    "Vorgeschichte": "Vorgeschichte",
+    "Alltag und Funktion": "Alltag und Funktion"
+  },
+  "diagnosisPool": [
+    "Arthrose",
+    "Arthritis",
+    "Armvenen Thrombose",
+    "Allergische Reaktion",
+    "Apoplex",
+    "Borelliose",
+    "Diabetes mellitus",
+    "Lymphödem",
+    "Morbus Osgood-Schlatter",
+    "Morbus Perthes",
+    "Morbus Parkinson",
+    "Multiple Sklerose",
+    "Glaukom"
+  ],
+  "cases": [
+    {
+      "id": "osgood-schlatter",
+      "title": "Vorderer Knieschmerz bei Jugendlichem",
+      "presentation": "Ein 13-jähriger Fußballspieler kommt wegen Schmerzen unterhalb des rechten Knies in die Praxis.",
+      "questions": [
+        {
+          "id": "onset",
+          "category": "Aktuelle Beschwerden",
+          "text": "Seit wann bestehen die Schmerzen und wie haben sie begonnen?",
+          "answer": "Seit etwa sechs Wochen, schleichend ohne Sturz oder Zusammenprall."
+        },
+        {
+          "id": "trigger",
+          "category": "Aktuelle Beschwerden",
+          "text": "Gab es einen Auslöser?",
+          "answer": "Es begann schleichend ohne Sturz oder Zusammenprall.",
+          "required": [
+            "onset"
+          ]
+        },
+        {
+          "id": "location",
+          "category": "Aktuelle Beschwerden",
+          "text": "Wo genau ist der Schmerz am stärksten?",
+          "answer": "Direkt unterhalb der Kniescheibe."
+        },
+        {
+          "id": "load",
+          "category": "Verlauf und Auslöser",
+          "text": "Wann wird der Schmerz stärker?",
+          "answer": "Beim Sprinten, Springen, Treppensteigen und nach intensivem Training.",
+          "required": [
+            "onset"
+          ]
+        },
+        {
+          "id": "rest",
+          "category": "Verlauf und Auslöser",
+          "text": "Wie ist es in Ruhe oder nach einer Trainingspause?",
+          "answer": "Dann ist es deutlich besser.",
+          "required": [
+            "load"
+          ]
+        },
+        {
+          "id": "growth",
+          "category": "Vorgeschichte",
+          "text": "Gab es zuletzt einen deutlichen Wachstumsschub?",
+          "answer": "Ja, in den letzten Monaten bin ich schnell gewachsen."
+        },
+        {
+          "id": "sport",
+          "category": "Alltag und Funktion",
+          "text": "Wie oft trainierst du pro Woche?",
+          "answer": "Viermal Fußballtraining plus ein Spiel am Wochenende."
+        },
+        {
+          "id": "vegetative-eating",
+          "category": "Vegetative Anamnese",
+          "text": "Wie sind Appetit, Gewicht in der letzten Zeit?",
+          "answer": "Appetit, Gewicht sind altersgerecht."
+        },
+        {
+          "id": "vegetative-output",
+          "category": "Vegetative Anamnese",
+          "text": "Wie sind Stuhlgang und Wasserlassen?",
+          "answer": "Stuhlgang und Wasserlassen sind unauffällig."
+        },
+        {
+          "id": "vegetative-bsymptome",
+          "category": "Vegetative Anamnese",
+          "text": "Gibt es Fieber/Nachtschweiß?",
+          "answer": "kein Fieber oder Nachtschweiß."
+        },
+        {
+          "id": "common-history",
+          "category": "System- und Vorerkrankungen",
+          "text": "Welche Erkrankungen, Operationen, Unfälle oder Krankenhausaufenthalte sind bekannt?",
+          "answer": "Keine chronischen Erkrankungen, keine relevanten Operationen oder Unfälle."
+        },
+        {
+          "id": "common-allergies",
+          "category": "Medikamenten- und Allergieanamnese",
+          "text": "Gibt es Allergien?",
+          "answer": "Keine bekannten Allergien."
+        },
+        {
+          "id": "common-medication",
+          "category": "Medikamenten- und Allergieanamnese",
+          "text": "Welche Medikamente, frei verkäuflichen Präparate und Allergien gibt es?",
+          "answer": "Keine regelmäßigen Medikamente."
+        },
+        {
+          "id": "common-substances",
+          "category": "Genuss- und Suchtmittelanamnese",
+          "text": "Wie häufig konsumieren Sie Nikotin, Alkohol oder andere Substanzen?",
+          "answer": "Kein Nikotin, Alkohol oder andere Substanzen."
+        },
+        {
+          "id": "common-social",
+          "category": "Sozial- und Familienanamnese",
+          "text": "Wie leben und arbeiten Sie, und welche wichtigen Erkrankungen gibt es in der Familie?",
+          "answer": "Lebt mit den Eltern, besucht die Schule; in der Familie keine relevanten Gelenkerkrankungen."
+        },
+        {
+          "id": "common-primary-care",
+          "category": "Hausärztliche Versorgung",
+          "text": "Wer ist Ihre hausärztliche Praxis und gab es dazu bereits eine Abklärung?",
+          "answer": "Kinderarztpraxis bekannt; wegen des Knies bisher nicht vorgestellt."
+        }
+      ],
+      "diagnoses": {
+        "correct": [
+          "Morbus Osgood-Schlatter"
+        ]
+      }
+    },
+    {
+      "id": "knee-arthrosis",
+      "title": "Belastungsabhängiger Knieschmerz",
+      "presentation": "Eine 67-jährige Person möchte wegen zunehmender Schmerzen im rechten Knie wieder sicherer spazieren gehen.",
+      "questions": [
+        {
+          "id": "course",
+          "category": "Aktuelle Beschwerden",
+          "text": "Wie lange bestehen die Beschwerden und wie haben sie sich verändert?",
+          "answer": "Seit mehreren Jahren, langsam zunehmend."
+        },
+        {
+          "id": "trajectory",
+          "category": "Aktuelle Beschwerden",
+          "text": "Wie haben die Beschwerden sich verändert?",
+          "answer": "Seit mehreren Jahren, langsam zunehmend.",
+          "required": [
+            "course"
+          ]
+        },
+        {
+          "id": "load-pain",
+          "category": "Verlauf und Auslöser",
+          "text": "Wann treten die Schmerzen besonders auf?",
+          "answer": "Beim längeren Gehen, Treppenabsteigen und nach Gartenarbeit."
+        },
+        {
+          "id": "start-pain",
+          "category": "Verlauf und Auslöser",
+          "text": "Gibt es Schmerzen nach dem Aufstehen oder nach längerem Sitzen?",
+          "answer": "Ja, die ersten Schritte sind schmerzhaft und steif.",
+          "required": [
+            "course"
+          ]
+        },
+        {
+          "id": "swelling",
+          "category": "Aktuelle Beschwerden",
+          "text": "Ist das Knie plötzlich stark gerötet oder überwärmt?",
+          "answer": "Nein, eher gelegentlich leicht geschwollen nach Belastung."
+        },
+        {
+          "id": "injury",
+          "category": "Vorgeschichte",
+          "text": "Gab es ein aktuelles Trauma oder eine Operation am Knie?",
+          "answer": "Kein aktuelles Trauma; vor vielen Jahren wurde ein Meniskus behandelt."
+        },
+        {
+          "id": "function",
+          "category": "Alltag und Funktion",
+          "text": "Was ist im Alltag am meisten eingeschränkt?",
+          "answer": "Treppen und längere Wege; ich brauche öfter Pausen."
+        },
+        {
+          "id": "vegetative-eating",
+          "category": "Vegetative Anamnese",
+          "text": "Wie sind Appetit, Gewicht in der letzten Zeit?",
+          "answer": "Appetit, Gewicht sind altersgerecht."
+        },
+        {
+          "id": "vegetative-output",
+          "category": "Vegetative Anamnese",
+          "text": "Wie sind Stuhlgang und Wasserlassen?",
+          "answer": "Stuhlgang und Wasserlassen sind unauffällig."
+        },
+        {
+          "id": "vegetative-bsymptome",
+          "category": "Vegetative Anamnese",
+          "text": "Gibt es Fieber/Nachtschweiß?",
+          "answer": "kein Fieber oder Nachtschweiß."
+        },
+        {
+          "id": "common-history",
+          "category": "System- und Vorerkrankungen",
+          "text": "Welche Erkrankungen, Operationen, Unfälle oder Krankenhausaufenthalte sind bekannt?",
+          "answer": "Bekannte Kniebeschwerden nach früherer Meniskusbehandlung, sonst keine relevanten Operationen oder Krankenhausaufenthalte."
+        },
+        {
+          "id": "common-allergies",
+          "category": "Medikamenten- und Allergieanamnese",
+          "text": "Gibt es Allergien?",
+          "answer": "Keine bekannten Allergien."
+        },
+        {
+          "id": "common-medication",
+          "category": "Medikamenten- und Allergieanamnese",
+          "text": "Welche Medikamente, frei verkäuflichen Präparate und Allergien gibt es?",
+          "answer": "Bei Bedarf Paracetamol;"
+        },
+        {
+          "id": "common-substances",
+          "category": "Genuss- und Suchtmittelanamnese",
+          "text": "Wie häufig konsumieren Sie Nikotin, Alkohol oder andere Substanzen?",
+          "answer": "Nichtraucher*in, gelegentlich ein Glas Wein."
+        },
+        {
+          "id": "common-social",
+          "category": "Sozial- und Familienanamnese",
+          "text": "Wie leben und arbeiten Sie, und welche wichtigen Erkrankungen gibt es in der Familie?",
+          "answer": "Lebt mit Partner*in, ist im Ruhestand und möchte wieder längere Spaziergänge machen; Mutter hatte im Alter Kniearthrose."
+        },
+        {
+          "id": "common-primary-care",
+          "category": "Hausärztliche Versorgung",
+          "text": "Wer ist Ihre hausärztliche Praxis und gab es dazu bereits eine Abklärung?",
+          "answer": "Hausarztpraxis kennt die Kniebeschwerden; keine aktuelle fachärztliche Abklärung."
+        }
+      ],
+      "diagnoses": {
+        "correct": [
+          "Arthrose"
+        ]
+      }
+    },
+    {
+      "id": "secondary-lymphedema",
+      "title": "Einseitige Armschwellung",
+      "presentation": "Eine 54-jährige Person berichtet über ein zunehmendes Schweregefühl und eine Schwellung des linken Arms.",
+      "questions": [
+        {
+          "id": "onset",
+          "category": "Aktuelle Beschwerden",
+          "text": "Seit wann besteht die Schwellung und nimmt sie im Tagesverlauf zu?",
+          "answer": "Seit einigen Monaten; abends ist sie deutlicher."
+        },
+        {
+          "id": "distribution",
+          "category": "Aktuelle Beschwerden",
+          "text": "Welche Bereiche des Arms sind betroffen?",
+          "answer": "Vor allem Ober- und Unterarm, der Ring sitzt inzwischen enger."
+        },
+        {
+          "id": "history",
+          "category": "Vorgeschichte",
+          "text": "Gab es Operationen oder Behandlungen in der letzten Zeit?",
+          "answer": "Vor einem Jahr erfolgte eine Brustoperation mit Entfernung von Lymphknoten.",
+          "required": [
+            "onset"
+          ]
+        },
+        {
+          "id": "skin",
+          "category": "Aktuelle Beschwerden",
+          "text": "Ist die Haut akut stark gerötet, heiß oder besteht Fieber?",
+          "answer": "Nein, keine Rötung, keine Überwärmung und kein Fieber."
+        },
+        {
+          "id": "function",
+          "category": "Alltag und Funktion",
+          "text": "Was fällt im Alltag schwerer?",
+          "answer": "Längeres Tragen und enge Kleidung am linken Arm."
+        },
+        {
+          "id": "vegetative-eating",
+          "category": "Vegetative Anamnese",
+          "text": "Wie sind Appetit, Gewicht in der letzten Zeit?",
+          "answer": "Appetit, Gewicht sind altersgerecht."
+        },
+        {
+          "id": "vegetative-output",
+          "category": "Vegetative Anamnese",
+          "text": "Wie sind Stuhlgang und Wasserlassen?",
+          "answer": "Stuhlgang und Wasserlassen sind unauffällig."
+        },
+        {
+          "id": "vegetative-bsymptome",
+          "category": "Vegetative Anamnese",
+          "text": "Gibt es Fieber/Nachtschweiß?",
+          "answer": "kein Fieber oder Nachtschweiß."
+        },
+        {
+          "id": "common-history",
+          "category": "System- und Vorerkrankungen",
+          "text": "Welche Erkrankungen, Operationen, Unfälle oder Krankenhausaufenthalte sind bekannt?",
+          "answer": "Brustoperation mit axillärer Lymphknotenentfernung vor einem Jahr; keine weiteren relevanten Erkrankungen."
+        },        
+		{
+          "id": "common-allergies",
+          "category": "Medikamenten- und Allergieanamnese",
+          "text": "Gibt es Allergien?",
+          "answer": "Keine bekannten Allergien."
+        },
+        {
+          "id": "common-medication",
+          "category": "Medikamenten- und Allergieanamnese",
+          "text": "Welche Medikamente, frei verkäuflichen Präparate und Allergien gibt es?",
+          "answer": "Nimmt eine antihormonelle Therapie;"
+        },
+        {
+          "id": "common-substances",
+          "category": "Genuss- und Suchtmittelanamnese",
+          "text": "Wie häufig konsumieren Sie Nikotin, Alkohol oder andere Substanzen?",
+          "answer": "Kein Nikotin, Alkohol selten."
+        },
+        {
+          "id": "common-social",
+          "category": "Sozial- und Familienanamnese",
+          "text": "Wie leben und arbeiten Sie, und welche wichtigen Erkrankungen gibt es in der Familie?",
+          "answer": "Lebt mit Partnerin und arbeitet wieder stundenweise im Büro; in der Familie keine bekannten Lymphgefäßerkrankungen."
+        },
+        {
+          "id": "common-primary-care",
+          "category": "Hausärztliche Versorgung",
+          "text": "Wer ist Ihre hausärztliche Praxis und gab es dazu bereits eine Abklärung?",
+          "answer": "Onkologische Nachsorge vorhanden; die Armschwellung wurde dort noch nicht angesprochen."
+        }
+      ],
+      "diagnoses": {
+        "correct": [
+          "Lymphödem"
+        ]
+      }
+    },
+    {
+      "id": "parkinson",
+      "title": "Verlangsamung und Unsicherheit beim Gehen",
+      "presentation": "Ein 70-jähriger Rentner stellt sich wegen zunehmender Gangunsicherheit vor.",
+      "questions": [
+        {
+          "id": "course",
+          "category": "Aktuelle Beschwerden",
+          "text": "Wie begann die Veränderung des Bewegungsverhaltens?",
+          "answer": "Schleichend über etwa ein Jahr."
+        },
+        {
+          "id": "tremor",
+          "category": "Aktuelle Beschwerden",
+          "text": "Fällt Zittern auf, wenn die Hand entspannt liegt?",
+          "answer": "Die rechte Hand zittert manchmal im Sitzen; beim Greifen wird es weniger."
+        },
+        {
+          "id": "initiation",
+          "category": "Alltag und Funktion",
+          "text": "Wann tritt die Unsicherheit auf?",
+          "answer": "Das Anlaufen ist manchmal wie blockiert und beim Drehen brauche ich mehrere kleine Schritte.",
+          "required": [
+            "course"
+          ]
+        },
+        {
+          "id": "asymmetry",
+          "category": "Aktuelle Beschwerden",
+          "text": "Begannen die Beschwerden auf einer Seite?",
+          "answer": "Ja, zuerst rechts."
+        },
+        {
+          "id": "vegetative-eating",
+          "category": "Vegetative Anamnese",
+          "text": "Wie sind Appetit, Gewicht in der letzten Zeit?",
+          "answer": "Appetit, Gewicht sind altersgerecht."
+        },
+        {
+          "id": "vegetative-output",
+          "category": "Vegetative Anamnese",
+          "text": "Wie sind Stuhlgang und Wasserlassen?",
+          "answer": "Stuhlgang und Wasserlassen sind unauffällig."
+        },
+        {
+          "id": "vegetative-bsymptome",
+          "category": "Vegetative Anamnese",
+          "text": "Gibt es Fieber/Nachtschweiß?",
+          "answer": "kein Fieber oder Nachtschweiß."
+        },
+        {
+          "id": "common-history",
+          "category": "System- und Vorerkrankungen",
+          "text": "Welche Erkrankungen, Operationen, Unfälle oder Krankenhausaufenthalte sind bekannt?",
+          "answer": "Arterielle Hypertonie, keine neurologischen Vorerkrankungen und keine relevanten Operationen."
+        },
+        {
+          "id": "common-allergies",
+          "category": "Medikamenten- und Allergieanamnese",
+          "text": "Gibt es Allergien?",
+          "answer": "Keine bekannten Allergien."
+        },
+        {
+          "id": "common-medication",
+          "category": "Medikamenten- und Allergieanamnese",
+          "text": "Welche Medikamente, frei verkäuflichen Präparate gibt es?",
+          "answer": "Amlodipin;"
+        },
+        {
+          "id": "common-substances",
+          "category": "Genuss- und Suchtmittelanamnese",
+          "text": "Wie häufig konsumieren Sie Nikotin, Alkohol oder andere Substanzen?",
+          "answer": "Früher geraucht, seit 20 Jahren nicht mehr; Alkohol selten."
+        },
+        {
+          "id": "common-social",
+          "category": "Sozial- und Familienanamnese",
+          "text": "Wie leben und arbeiten Sie, und welche wichtigen Erkrankungen gibt es in der Familie?",
+          "answer": "Lebt mit Ehepartnerin, ist im Ruhestand; Vater hatte im höheren Alter ein Zittern unbekannter Ursache."
+        },
+        {
+          "id": "common-primary-care",
+          "category": "Hausärztliche Versorgung",
+          "text": "Wer ist Ihre hausärztliche Praxis und gab es dazu bereits eine Abklärung?",
+          "answer": "Hausarztpraxis kennt die Gangveränderung und hat die Abklärung angeregt."
+        }
+      ],
+      "diagnoses": {
+        "correct": [
+          "Morbus Parkinson"
+        ]
+      }
+    },
+    {
+      "id": "diabetes",
+      "title": "Belastungsabbruch durch Durst und Müdigkeit",
+      "presentation": "Ein 58-jähriger Mann möchte nach längerer Inaktivität wieder trainieren, berichtet jedoch über ausgeprägte Müdigkeit.",
+      "questions": [
+        {
+          "id": "symptoms",
+          "category": "Aktuelle Beschwerden",
+          "text": "Welche weiteren Veränderungen sind Ihnen aufgefallen?",
+          "answer": "Zeitweise verschwommenes Sehen."
+        },
+        {
+          "id": "course",
+          "category": "Verlauf und Auslöser",
+          "text": "Seit wann bestehen diese Beschwerden?",
+          "answer": "Seit einigen Monaten, schleichend zunehmend."
+        },
+        {
+          "id": "lifestyle",
+          "category": "Alltag und Funktion",
+          "text": "Wie sehen Bewegung und Ernährung im Alltag aus?",
+          "answer": "Viel Sitzen im Beruf, wenig Bewegung und häufig süße Getränke."
+        },        
+        {
+          "id": "vegetative-eating",
+          "category": "Vegetative Anamnese",
+          "text": "Wie sind Appetit, Gewicht in der letzten Zeit?",
+          "answer": "Appetit, Gewicht sind gleichbleibend. BMI 30"
+        },
+        {
+          "id": "vegetative-output",
+          "category": "Vegetative Anamnese",
+          "text": "Wie sind Stuhlgang und Wasserlassen?",
+          "answer": "Starker Durst, häufiges Wasserlassen."
+        },
+        {
+          "id": "vegetative-bsymptome",
+          "category": "Vegetative Anamnese",
+          "text": "Gibt es Fieber/Nachtschweiß?",
+          "answer": "kein Fieber oder Nachtschweiß."
+        },
+        {
+          "id": "common-history",
+          "category": "System- und Vorerkrankungen",
+          "text": "Welche Erkrankungen, Operationen, Unfälle oder Krankenhausaufenthalte sind bekannt?",
+          "answer": "Keine bekannte Stoffwechselerkrankung, keine relevanten Operationen."
+        },
+        {
+          "id": "common-allergies",
+          "category": "Medikamenten- und Allergieanamnese",
+          "text": "Gibt es Allergien?",
+          "answer": "Keine bekannten Allergien."
+        },
+        {
+          "id": "common-medication",
+          "category": "Medikamenten- und Allergieanamnese",
+          "text": "Welche Medikamente, frei verkäuflichen Präparate und Allergien gibt es?",
+          "answer": "Keine regelmäßigen Medikamente;"
+        },
+        {
+          "id": "common-substances",
+          "category": "Genuss- und Suchtmittelanamnese",
+          "text": "Wie häufig konsumieren Sie Nikotin, Alkohol oder andere Substanzen?",
+          "answer": "Nichtraucher; Alkohol am Wochenende in kleinen Mengen."
+        },
+        {
+          "id": "common-social",
+          "category": "Sozial- und Familienanamnese",
+          "text": "Wie leben und arbeiten Sie?",
+          "answer": "Bürotätigkeit, lebt mit Familie"
+        },
+        {
+          "id": "family",
+          "category": "Sozial- und Familienanamnese",
+          "text": "Gibt es Erkrankungen in der Familie?",
+          "answer": "Der Vater hatte einen Typ-2-Diabetes."
+        },
+        {
+          "id": "common-primary-care",
+          "category": "Hausärztliche Versorgung",
+          "text": "Wer ist Ihre hausärztliche Praxis und gab es dazu bereits eine Abklärung?",
+          "answer": "Hausarztpraxis seit Jahren nicht besucht; keine aktuelle Laboruntersuchung."
+        }
+      ],
+      "diagnoses": {
+        "correct": [
+          "Diabetes mellitus"
+        ]
+      }
+    }
+  ]
+}

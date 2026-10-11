@@ -1,0 +1,510 @@
+{
+  "id": "course-end",
+  "title": "Kursende:",
+  "subject": "Lernfälle · Verdachtsmuster erkennen und angemessen weiterleiten",
+  "description": "Fünf komplexere Fälle mit Schwerpunkt auf Warnhinweisen, Verlauf und gezielter Vertiefung.",
+  "defaultLanguage": "de",
+  "defaultTimeLimitSeconds": 180,
+  "categoryPrompts": {
+    "Aktuelle Beschwerden": "Aktuelle Beschwerden",
+    "Verlauf und Auslöser": "Verlauf und Auslöser",
+    "Warnhinweise": "Warnhinweise",
+    "Vorgeschichte und Risiken": "Vorgeschichte und Risiken",
+    "Alltag und Funktion": "Alltag und Funktion"
+  },
+  "diagnosisPool": [
+    "Cauda-Equina-Syndrom",
+    "Multiple Sklerose",
+    "Wirbelkörperfraktur",
+    "Pyelonephritis",
+    "Appendizitis",
+    "Arthrose",
+    "Lymphödem",
+    "Diabetes mellitus",
+    "Apoplex",
+    "Spinale Stenose mit Claudicatio spinalis",
+    "Thrombose"
+  ],
+  "cases": [
+    {
+      "id": "cauda-equina",
+      "title": "Akute Rückenschmerzen mit Blasenstörung",
+      "presentation": "Eine 46-jährige Person kommt ohne Überweisung wegen seit zwei Tagen deutlich stärkerer Kreuzschmerzen.",
+      "questions": [
+        {
+          "id": "course",
+          "category": "Aktuelle Beschwerden",
+          "text": "Wie haben sich die Schmerzen entwickelt?",
+          "answer": "Akut deutlich stärker"
+        },
+        {
+          "id": "radiation",
+          "category": "Aktuelle Beschwerden",
+          "text": "Strahlen die Schmerzen irgewndwohin aus?",
+          "answer": "Beidseits ziehende Schmerzen in die Beine."
+        },
+        {
+          "id": "saddle",
+          "category": "Aktuelle Beschwerden",
+          "text": "Gibt es andere Begleitsymptome wie Kribbelgefühle oder Taubheit?",
+          "answer": "Ja, seit heute fühlt sich der Bereich beim Abwischen taub an.",
+          "required": [
+            "radiation"
+          ]
+        },
+        {
+          "id": "bladder",
+          "category": "Aktuelle Beschwerden",
+          "text": "Haben sich Wasserlassen oder Stuhlgang neu verändert?",
+          "answer": "Ich kann die Blase schlechter entleeren und habe heute Urin verloren.",
+          "required": [
+            "saddle"
+          ]
+        },
+        {
+          "id": "weakness",
+          "category": "Aktuelle Beschwerden",
+          "text": "Ist neue Schwäche in einem oder beiden Beinen aufgetreten?",
+          "answer": "Beide Beine fühlen sich unsicher und schwächer an.",
+          "required": [
+            "radiation"
+          ]
+        },
+        {
+          "id": "history",
+          "category": "Vorgeschichte und Risiken",
+          "text": "Gab es kürzlich Trauma, Fieber oder bekannte Tumorerkrankungen?",
+          "answer": "Kein Trauma, kein Fieber und keine bekannte Tumorerkrankung."
+        },
+        {
+          "id": "vegetative-eating",
+          "category": "Vegetative Anamnese",
+          "text": "Wie sind Appetit, Gewicht in der letzten Zeit?",
+          "answer": "Appetit, Gewicht sind unverändert."
+        },
+        {
+          "id": "vegetative-output",
+          "category": "Vegetative Anamnese",
+          "text": "Wie sind Stuhlgang und Wasserlassen?",
+          "answer": "Neu gestörtes Wasserlassen, Stuhlgang bisher unauffällig."
+        },
+        {
+          "id": "vegetative-bsymptome",
+          "category": "Vegetative Anamnese",
+          "text": "Gibt es Fieber/Nachtschweiß?",
+          "answer": "kein Fieber oder Nachtschweiß."
+        },
+        {
+          "id": "common-history",
+          "category": "System- und Vorerkrankungen",
+          "text": "Welche Erkrankungen, Operationen, Unfälle oder Krankenhausaufenthalte sind bekannt?",
+          "answer": "Wiederkehrende Kreuzschmerzen, keine Tumorerkrankung, keine Operation an der Wirbelsäule."
+        },
+        {
+          "id": "common-medication",
+          "category": "Medikamenten- und Allergieanamnese",
+          "text": "Welche Medikamente, frei verkäuflichen Präparate gibt es?",
+          "answer": "Ibuprofen gelegentlich;"
+        },
+        {
+          "id": "common-allergies",
+          "category": "Medikamenten- und Allergieanamnese",
+          "text": "Gibt es Allergien?",
+          "answer": "Keine bekannten Allergien."
+        },
+        {
+          "id": "common-substances",
+          "category": "Genuss- und Suchtmittelanamnese",
+          "text": "Wie häufig konsumieren Sie Nikotin, Alkohol oder andere Substanzen?",
+          "answer": "Nichtraucher*in, Alkohol selten, keine anderen Substanzen."
+        },
+        {
+          "id": "common-social",
+          "category": "Sozial- und Familienanamnese",
+          "text": "Wie leben und arbeiten Sie, und welche wichtigen Erkrankungen gibt es in der Familie?",
+          "answer": "Lebt mit Partner*in und arbeitet im Büro; keine relevante Familienanamnese."
+        },
+        {
+          "id": "common-primary-care",
+          "category": "Hausärztliche Versorgung",
+          "text": "Wer ist Ihre hausärztliche Praxis und gab es dazu bereits eine Abklärung?",
+          "answer": "Hausarztpraxis wurde noch nicht kontaktiert, da die Beschwerden am Wochenende deutlich zunahmen."
+        }
+      ],
+      "diagnoses": {
+        "correct": [
+          "Cauda-Equina-Syndrom"
+        ]
+      }
+    },
+    {
+      "id": "spinal-stenosis",
+      "title": "Belastungsabhängige Beinschmerzen beim Gehen",
+      "presentation": "Ein 74-jähriger Mann berichtet über zunehmend beidseitige Beinbeschwerden.",
+      "questions": [
+        {
+          "id": "walking",
+          "category": "Aktuelle Beschwerden",
+          "text": "Wann treten die Beschwerden auf.",
+          "answer": "Nach längerem Gehen tun mir die Beine weh."
+        },
+        {
+          "id": "walking-width",
+          "category": "Aktuelle Beschwerden",
+          "text": "Nach welcher Strecke beginnen die Beschwerden und was passiert beim Anhalten?",
+          "answer": "Nach etwa 150 Metern treten sie auf, im Sitzen lässt es nach.",
+          "required": [
+            "walking"
+          ]
+        },
+        {
+          "id": "posture",
+          "category": "Alltag und Funktion",
+          "text": "Macht eine vorgebeugte Haltung, etwa beim Einkaufswagen, einen Unterschied?",
+          "answer": "Ja, damit kann ich deutlich weitergehen.",
+          "required": [
+            "walking"
+          ]
+        },
+        {
+          "id": "downhill",
+          "category": "Verlauf und Auslöser",
+          "text": "Wie wirken bergab gehen oder aufrechtes Stehen?",
+          "answer": "Beides verschlechtert die Beschwerden.",
+          "required": [
+            "walking"
+          ]
+        },
+        {
+          "id": "vascular",
+          "category": "Vorgeschichte und Risiken",
+          "text": "Gibt es Wunden an den Füßen, plötzlich kalte Füße oder akute einseitige Schwellung?",
+          "answer": "Nein, nichts davon."
+        },
+        {
+          "id": "back",
+          "category": "Vorgeschichte und Risiken",
+          "text": "Sind länger bestehende Beschwerden an der Lendenwirbelsäule bekannt?",
+          "answer": "Seit Jahren Rückenschmerzen und zunehmende Einschränkung beim Gehen."
+        },
+        {
+          "id": "vegetative-eating",
+          "category": "Vegetative Anamnese",
+          "text": "Wie sind Appetit, Gewicht in der letzten Zeit?",
+          "answer": "Appetit, Gewicht sind unverändert."
+        },
+        {
+          "id": "vegetative-output",
+          "category": "Vegetative Anamnese",
+          "text": "Wie sind Stuhlgang und Wasserlassen?",
+          "answer": "Stuhlgang und Wasserlassen sind unauffällig."
+        },
+        {
+          "id": "vegetative-bsymptome",
+          "category": "Vegetative Anamnese",
+          "text": "Gibt es Fieber/Nachtschweiß?",
+          "answer": "kein Fieber oder Nachtschweiß."
+        },
+        {
+          "id": "common-history",
+          "category": "System- und Vorerkrankungen",
+          "text": "Welche Erkrankungen, Operationen, Unfälle oder Krankenhausaufenthalte sind bekannt?",
+          "answer": "Langjährige Lendenwirbelsäulenbeschwerden und Hypertonie; keine kürzliche Operation."
+        },
+        {
+          "id": "common-medication",
+          "category": "Medikamenten- und Allergieanamnese",
+          "text": "Welche Medikamente, frei verkäuflichen Präparate gibt es?",
+          "answer": "Ramipril und bei Bedarf Schmerzmittel;"
+        },
+        {
+          "id": "common-allergies",
+          "category": "Medikamenten- und Allergieanamnese",
+          "text": "Gibt es Allergien?",
+          "answer": "Keine bekannten Allergien."
+        },
+        {
+          "id": "common-substances",
+          "category": "Genuss- und Suchtmittelanamnese",
+          "text": "Wie häufig konsumieren Sie Nikotin, Alkohol oder andere Substanzen?",
+          "answer": "Rauchte früher, seit zehn Jahren nicht mehr; Alkohol selten."
+        },
+        {
+          "id": "common-social",
+          "category": "Sozial- und Familienanamnese",
+          "text": "Wie leben und arbeiten Sie, und welche wichtigen Erkrankungen gibt es in der Familie?",
+          "answer": "Lebt allein im zweiten Stock ohne Aufzug; möchte Einkäufe und Spaziergänge wieder selbstständig erledigen."
+        },
+        {
+          "id": "common-primary-care",
+          "category": "Hausärztliche Versorgung",
+          "text": "Wer ist Ihre hausärztliche Praxis und gab es dazu bereits eine Abklärung?",
+          "answer": "Hausarztpraxis kennt die Rückenschmerzen, die Gehstreckenverkürzung wurde bisher nicht gezielt abgeklärt."
+        }
+      ],
+      "diagnoses": {
+        "correct": [
+          "Spinale Stenose mit Claudicatio spinalis"
+        ]
+      }
+    },
+    {
+      "id": "dvt",
+      "title": "Neue einseitige Wadenschwellung",
+      "presentation": "Eine 62-jährige Person erscheint zur Therapie und berichtet seit gestern über ein geschwollenes linkes Bein.",
+      "questions": [
+        {
+          "id": "onset",
+          "category": "Aktuelle Beschwerden",
+          "text": "Wann begann die Schwellung?",
+          "answer": "Seit gestern, die Wade wirkt deutlich dicker."
+        },
+        {
+          "id": "pain",
+          "category": "Aktuelle Beschwerden",
+          "text": "Bestehen Druckgefühl, Schmerz oder Wärme im Bein?",
+          "answer": "Die Wade spannt, schmerzt und ist wärmer als rechts."
+        },
+        {
+          "id": "breathing",
+          "category": "Warnhinweise",
+          "text": "Treten Atemnot, Brustschmerz, Schwindel oder Bluthusten auf?",
+          "answer": "Nein, aktuell keine dieser Beschwerden."
+        },
+        {
+          "id": "vegetative-eating",
+          "category": "Vegetative Anamnese",
+          "text": "Wie sind Appetit, Gewicht in der letzten Zeit?",
+          "answer": "Appetit, Gewicht sind unverändert."
+        },
+        {
+          "id": "vegetative-output",
+          "category": "Vegetative Anamnese",
+          "text": "Wie sind Stuhlgang und Wasserlassen?",
+          "answer": "Stuhlgang und Wasserlassen sind unauffällig."
+        },
+        {
+          "id": "vegetative-bsymptome",
+          "category": "Vegetative Anamnese",
+          "text": "Gibt es Fieber/Nachtschweiß?",
+          "answer": "kein Fieber oder Nachtschweiß."
+        },
+        {
+          "id": "common-history",
+          "category": "System- und Vorerkrankungen",
+          "text": "Welche Erkrankungen, Operationen, Unfälle oder Krankenhausaufenthalte sind bekannt?",
+          "answer": "Knieoperation vor einer Woche mit kurzem Krankenhausaufenthalt;"
+        },
+        {
+          "id": "common-medication",
+          "category": "Medikamenten- und Allergieanamnese",
+          "text": "Welche Medikamente, frei verkäuflichen Präparate gibt es?",
+          "answer": "Postoperatives Schmerzmittel und verordnete Thromboseprophylaxe;"
+        },
+        {
+          "id": "common-allergies",
+          "category": "Medikamenten- und Allergieanamnese",
+          "text": "Gibt es Allergien?",
+          "answer": "Keine bekannten Allergien."
+        },
+        {
+          "id": "common-substances",
+          "category": "Genuss- und Suchtmittelanamnese",
+          "text": "Wie häufig konsumieren Sie Nikotin, Alkohol oder andere Substanzen?",
+          "answer": "Nichtraucher*in, Alkohol selten, keine anderen Substanzen."
+        },
+        {
+          "id": "common-social",
+          "category": "Sozial- und Familienanamnese",
+          "text": "Wie leben und arbeiten Sie, und welche wichtigen Erkrankungen gibt es in der Familie?",
+          "answer": "Lebt mit Familie; vor der Operation körperlich aktiv; Keine relevante Familienanamnese"
+        },
+        {
+          "id": "common-primary-care",
+          "category": "Hausärztliche Versorgung",
+          "text": "Wer ist Ihre hausärztliche Praxis und gab es dazu bereits eine Abklärung?",
+          "answer": "Noch keine hausärztliche Rücksprache; die heutige Therapie war bereits geplant."
+        }
+      ],
+      "diagnoses": {
+        "correct": [
+          "Thrombose"
+        ]
+      }
+    },
+    {
+      "id": "multiple-sclerosis",
+      "title": "Wiederkehrende neurologische Ausfälle",
+      "presentation": "Eine 31-jährige Person berichtet über wechselnde neurologische Beschwerden, die die Arbeit am Bildschirm erschweren.",
+      "questions": [
+        {
+          "id": "vision",
+          "category": "Aktuelle Beschwerden",
+          "text": "Welceh Beschwerden sind aufgetreten?",
+          "answer": "Vor einigen Monaten war das Sehen auf einem Auge für Tage verschwommen und Augenbewegungen taten weh."
+        },
+        {
+          "id": "sensory",
+          "category": "Aktuelle Beschwerden",
+          "text": "Treten noch andere Beschwerden auf?",
+          "answer": "Zeitweise Kribbeln im rechten Bein und eine ungewohnte Unsicherheit beim Gehen,
+          "required": [
+            "vision"
+          ]
+        },
+        {
+          "id": "episodes",
+          "category": "Verlauf und Auslöser",
+          "text": "Kamen die Beschwerden schubweise und bildeten sie sich teilweise zurück?",
+          "answer": "Ja, mehrere getrennte Episoden, dazwischen deutliche Besserung.",
+          "required": [
+            "vision"
+          ]
+        },
+        {
+          "id": "heat",
+          "category": "Alltag und Funktion",
+          "text": "Was kann die Beschwerden verschlechtern?",
+          "answer": "Bei Hitze und nach langen Tagen ist die Müdigkeit ausgeprägter."
+        },
+        {
+          "id": "vegetative-eating",
+          "category": "Vegetative Anamnese",
+          "text": "Wie sind Appetit, Gewicht in der letzten Zeit?",
+          "answer": "Appetit, Gewicht sind unverändert."
+        },
+        {
+          "id": "vegetative-output",
+          "category": "Vegetative Anamnese",
+          "text": "Wie sind Stuhlgang und Wasserlassen?",
+          "answer": "Stuhlgang und Wasserlassen sind unauffällig."
+        },
+        {
+          "id": "vegetative-bsymptome",
+          "category": "Vegetative Anamnese",
+          "text": "Gibt es Fieber/Nachtschweiß?",
+          "answer": "kein Fieber oder Nachtschweiß."
+        },
+        {
+          "id": "common-history",
+          "category": "System- und Vorerkrankungen",
+          "text": "Welche Erkrankungen, Operationen, Unfälle oder Krankenhausaufenthalte sind bekannt?",
+          "answer": "Keine bekannten Erkrankungen oder Operationen."
+        },
+        {
+          "id": "common-medication",
+          "category": "Medikamenten- und Allergieanamnese",
+          "text": "Welche Medikamente, frei verkäuflichen Präparate gibt es?",
+          "answer": "Keine regelmäßigen Medikamente."
+        },
+        {
+          "id": "common-allergies",
+          "category": "Medikamenten- und Allergieanamnese",
+          "text": "Gibt es Allergien?",
+          "answer": "Keine bekannten Allergien."
+        },
+        {
+          "id": "common-substances",
+          "category": "Genuss- und Suchtmittelanamnese",
+          "text": "Wie häufig konsumieren Sie Nikotin, Alkohol oder andere Substanzen?",
+          "answer": "Nichtraucher*in, Alkohol selten, keine anderen Substanzen."
+        },
+        {
+          "id": "common-social",
+          "category": "Sozial- und Familienanamnese",
+          "text": "Wie leben und arbeiten Sie, und welche wichtigen Erkrankungen gibt es in der Familie?",
+          "answer": "Arbeitet im Büro und lebt mit Partner*in; in der Familie keine relevanten Erkrankungen."
+        },
+        {
+          "id": "common-primary-care",
+          "category": "Hausärztliche Versorgung",
+          "text": "Wer ist Ihre hausärztliche Praxis und gab es dazu bereits eine Abklärung?",
+          "answer": "Hausarztpraxis kennt die Sehstörung aus der ersten Episode, eine neurologische Abklärung erfolgte noch nicht."
+        }
+      ],
+      "diagnoses": {
+        "correct": [
+          "Multiple Sklerose"
+        ]
+      }
+    },
+    {
+      "id": "osteoporosis",
+      "title": "Rückenschmerz nach geringer Belastung",
+      "presentation": "Eine 76-jährige Person berichtet über neue Schmerzen im mittleren Rücken.",
+      "questions": [
+        {
+          "id": "event",
+          "category": "Aktuelle Beschwerden",
+          "text": "Gab es ein Sturzereignis oder ein schweres Trauma?",
+          "answer": "Kein Sturz; nur das Anheben einer leichten Tasche."
+        },
+        {
+          "id": "neurology",
+          "category": "Warnhinweise",
+          "text": "Bestehen neu Taubheit, Lähmung oder Blasen- bzw. Darmstörungen?",
+          "answer": "Nein."
+        },
+        {
+          "id": "vegetative-eating",
+          "category": "Vegetative Anamnese",
+          "text": "Wie sind Appetit, Gewicht in der letzten Zeit?",
+          "answer": "Appetit, Gewicht sind unverändert."
+        },
+        {
+          "id": "vegetative-output",
+          "category": "Vegetative Anamnese",
+          "text": "Wie sind Stuhlgang und Wasserlassen?",
+          "answer": "Stuhlgang und Wasserlassen sind unauffällig."
+        },
+        {
+          "id": "vegetative-bsymptome",
+          "category": "Vegetative Anamnese",
+          "text": "Gibt es Fieber/Nachtschweiß?",
+          "answer": "kein Fieber oder Nachtschweiß."
+        },
+        {
+          "id": "common-history",
+          "category": "System- und Vorerkrankungen",
+          "text": "Welche Erkrankungen, Operationen, Unfälle oder Krankenhausaufenthalte sind bekannt?",
+          "answer": "Handgelenksfraktur vor einem Jahr nach Niedrigenergietrauma und auffällige Knochendichtemessung; keine Wirbelsäulenoperation."
+        },
+        {
+          "id": "common-medication",
+          "category": "Medikamenten- und Allergieanamnese",
+          "text": "Welche Medikamente, frei verkäuflichen Präparate und Allergien gibt es?",
+          "answer": "Kalzium/Vitamin-D-Präparat; längerfristige Kortisontherapie in der Vorgeschichte; keine Allergien."
+        },
+        {
+          "id": "common-allergies",
+          "category": "Medikamenten- und Allergieanamnese",
+          "text": "Gibt es Allergien?",
+          "answer": "Keine bekannten Allergien."
+        },
+        {
+          "id": "common-substances",
+          "category": "Genuss- und Suchtmittelanamnese",
+          "text": "Wie häufig konsumieren Sie Nikotin, Alkohol oder andere Substanzen?",
+          "answer": "Nichtraucher*in, Alkohol selten."
+        },
+        {
+          "id": "common-social",
+          "category": "Sozial- und Familienanamnese",
+          "text": "Wie leben und arbeiten Sie, und welche wichtigen Erkrankungen gibt es in der Familie?",
+          "answer": "Lebt allein, versorgt Haushalt selbst; Mutter hatte im Alter einen Oberschenkelhalsbruch."
+        },
+        {
+          "id": "common-primary-care",
+          "category": "Hausärztliche Versorgung",
+          "text": "Wer ist Ihre hausärztliche Praxis und gab es dazu bereits eine Abklärung?",
+          "answer": "Hausarztpraxis kennt die niedrige Knochendichte; wegen des neuen Rückenschmerzes noch nicht kontaktiert."
+        }
+      ],
+      "diagnoses": {
+        "correct": [
+          "Wirbelkörperfraktur"
+        ]
+      }
+    }
+  ]
+}
