@@ -347,7 +347,7 @@
           "id": "sensory",
           "category": "Aktuelle Beschwerden",
           "text": "Treten noch andere Beschwerden auf?",
-          "answer": "Zeitweise Kribbeln im rechten Bein und eine ungewohnte Unsicherheit beim Gehen,
+          "answer": "Zeitweise Kribbeln im rechten Bein und eine ungewohnte Unsicherheit beim Gehen",
           "required": [
             "vision"
           ]
